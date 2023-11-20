@@ -1,5 +1,5 @@
-import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "./Navbar.module.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const Navbar = () => {
   return (
