@@ -1,0 +1,9 @@
+.cartIcon {
+  padding-top: 8px;
+  color: #fff;
+  transition: 0.5s;
+}
+
+.cartIcon:hover {
+  color: #60656f;
+}

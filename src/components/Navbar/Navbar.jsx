@@ -1,5 +1,6 @@
 import styles from "./Navbar.module.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import CartWidget from "../CartWidget/CartWidget";
 
 const Navbar = () => {
   return (
@@ -25,25 +26,26 @@ const Navbar = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link" href="./pages/about.html">
+                <a className="nav-link" href="#">
                   PUZZLES 3D
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="./pages/contact.html">
+                <a className="nav-link" href="#">
                   PUZZLES DE MADERA
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="./pages/skills.html">
+                <a className="nav-link" href="#">
                   RUBICK
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="./pages/projects.html">
+                <a className="nav-link" href="#">
                   ACCESORIOS
                 </a>
               </li>
+              <CartWidget />
             </ul>
           </div>
         </nav>
