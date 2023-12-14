@@ -44,10 +44,10 @@ export const getProductsByCategory = (categoryId) => {
   });
 };
 
-export const getProductsById = (itemId) => {
+export const getProductById = (itemId) => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(products.find((prod) => prod.id === itemId));
-    });
+    }, 1000);
   });
 };
