@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 
 const ItemListContainer = ({ welcome }) => {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const { categoryId } = useParams();
 
@@ -12,8 +13,17 @@ const ItemListContainer = ({ welcome }) => {
     const asyncFunction = categoryId ? getProductsByCategory : getProducts;
     asyncFunction(categoryId).then((response) => {
       setProducts(response);
+      setLoading(false);
     });
   }, [categoryId]);
+
+  if (loading) {
+    return <p>Cargando...</p>;
+  }
+
+  if (products.length === 0) {
+    return <p>No existen productos</p>;
+  }
 
   return (
     <div>
