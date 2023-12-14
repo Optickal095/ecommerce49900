@@ -2,27 +2,28 @@ const products = [
   {
     id: "1",
     name: "Cubo Rubick 3x3",
-    price: "1000",
+    price: 1000,
     category: "rubick",
     img: "https://cdnx.jumpseller.com/juegos-basa/image/26954078/resize/540/540?1662666572",
-    stock: "20",
+    stock: 20,
     desciption: "Descripción",
   },
   {
     id: "2",
     name: "Auto de carrera 1910",
-    price: "1000",
+    price: 1500,
     category: "armable",
     img: "https://playmore.cl/cdn/shop/files/Playmore-Robotime-MC401-Auto-Carrera-Vintage-Madera-Armable_d9ea13f4-3a6d-4cae-88bc-1db8ed3b89c8_1024x1024.jpg?v=1688076005",
-    stock: "10",
+    stock: 10,
     description: "Descripción",
   },
   {
     id: "3",
     name: "Puzzle 12000 piezas",
-    price: "1000",
+    price: 3000,
+    category: "puzzle",
     img: "https://puzzlemania-154aa.kxcdn.com/products/2021/puzzle-educa-12000-pieces-wonders-of-the-world-12000.jpg",
-    stock: "30",
+    stock: 30,
     desciption: "Descripción",
   },
 ];
@@ -40,5 +41,13 @@ export const getProductsByCategory = (categoryId) => {
     setTimeout(() => {
       resolve(products.filter((prod) => prod.category === categoryId));
     }, 1000);
+  });
+};
+
+export const getProductsById = (itemId) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(products.find((prod) => prod.id === itemId));
+    });
   });
 };
