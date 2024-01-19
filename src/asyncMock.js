@@ -35,6 +35,42 @@ const products = [
     stock: 20,
     desciption: "Cubo de Rubick 4x4, bastante bueno",
   },
+  {
+    id: "5",
+    name: "Cubo Rubick 2x2",
+    price: 800,
+    category: "rubick",
+    img: "https://cuboscubik.com/image/cache/catalog/Qiyi/2x2/Qiyi%20Qidi%202x2-600x600.png",
+    stock: 15,
+    description: "Cubo de Rubick 2x2, ideal para principiantes",
+  },
+  {
+    id: "6",
+    name: "Puzzle 5000 piezas",
+    price: 2500,
+    category: "madera",
+    img: "https://falabella.scene7.com/is/image/Falabella/gsc_121027760_2896790_1?wid=800&hei=800&qlt=70",
+    stock: 25,
+    description: "Puzzle desafiante de 5000 piezas para entusiastas",
+  },
+  {
+    id: "7",
+    name: "Rompecabezas 3D Titanic",
+    price: 1800,
+    category: "puzzle3d",
+    img: "https://s3.amazonaws.com/entrekidscl/vich_files/proveedorarchivo/615a411140954671991615.jpg",
+    stock: 12,
+    description: "Construye el famoso Titanic en 3D",
+  },
+  {
+    id: "8",
+    name: "Cubo Rubick 5x5",
+    price: 2000,
+    category: "rubick",
+    img: "https://http2.mlstatic.com/D_NQ_NP_780659-MLV49921280989_052022-O.webp",
+    stock: 18,
+    description: "Cubo de Rubick 5x5, para desafíos avanzados",
+  },
 ];
 
 export const getProducts = () => {

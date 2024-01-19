@@ -11,9 +11,9 @@ export const CartProvider = ({ children }) => {
 
   const addItem = (productToAdd) => {
     if (!isInCart(productToAdd.id)) {
-      setCart((prev) => [...prev, productToAdd]);
+      setCart((prev) => [...prev, { ...productToAdd, img: productToAdd.img }]);
     } else {
-      console.error("el producto ya esta agregado");
+      console.error("El producto ya está agregado al carrito");
     }
   };
 

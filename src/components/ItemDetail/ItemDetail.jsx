@@ -60,6 +60,7 @@ const ItemDetail = ({ id, name, category, img, price, stock, description }) => {
       name,
       price,
       quantity,
+      img,
     };
     addItem(objProductToAdd);
     showNotification("success", `Se agregó correctamente ${quantity} ${name}`);

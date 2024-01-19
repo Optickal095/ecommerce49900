@@ -1,11 +1,17 @@
+import React from "react";
 import Item from "../Item/Item";
+import "./ItemList.css";
 
 const ItemList = ({ products }) => {
   return (
-    <div onClick={() => console.log("list")}>
-      {products.map((prod) => {
-        return <Item key={prod.id} {...prod} />;
-      })}
+    <div className="container">
+      <div className="row">
+        {products.map((prod) => (
+          <div key={prod.id} className="col-md-4 mb-4">
+            <Item {...prod} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
