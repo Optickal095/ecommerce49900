@@ -43,8 +43,6 @@ const Checkout = () => {
         where(documentId(), "in", ids)
       );
 
-      // getDocs(productsCollection).then(querySnapshot => console.log(documentSnapshot))
-
       const { docs } = await getDocs(productsCollection);
 
       docs.forEach((doc) => {

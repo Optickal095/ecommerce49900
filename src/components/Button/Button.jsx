@@ -4,12 +4,8 @@ const Button = () => {
   const [colorText, setColorText] = useState("red");
   const buttonRef = useRef();
 
-  console.log(buttonRef);
-
   useEffect(() => {
     const handleScroll = (e) => {
-      console.log(e);
-
       const button = buttonRef.current;
 
       const { y } = button.getBoundingClientRect();
@@ -28,11 +24,7 @@ const Button = () => {
 
   return (
     <div style={{ height: "180vh", padding: 20 }}>
-      <button
-        onClick={(e) => console.log(e)}
-        ref={buttonRef}
-        style={{ color: colorText }}
-      >
+      <button ref={buttonRef} style={{ color: colorText }}>
         Has Click
       </button>
     </div>
