@@ -1,25 +1,24 @@
 import { useState } from "react";
 
-const ItemCount = ({ initial = 1, stock = 10, onAdd }) => {
-  const [count, setCount] = useState(initial);
-
-  const increment = () => {
-    if (count < stock) {
-      setCount((prev) => prev + 1);
-    }
-  };
+const ItemCount = ({ initialValue, incrementBy }) => {
+  const [count, setCount] = useState(0);
 
   const decrement = () => {
-    if (count > 1) {
-      setCount((prev) => prev - 1);
+    if (count > 0) {
+      setCount((prev) => prev - incrementBy);
     }
   };
+
+  const increment = () => {
+    setCount((prev) => prev + incrementBy);
+  };
+
   return (
     <div>
-      <h3>{count}</h3>
-      <button onClick={decrement}>-</button>
-      <button onClick={() => onAdd(count)}>Agregar al carrito</button>
-      <button onClick={increment}>+</button>
+      <h1>{count}</h1>
+      <button onClick={decrement}>Decrementar</button>
+      <button onClick={() => setCount(initialValue)}>Reiniciar</button>
+      <button onClick={increment}>Incrementar</button>
     </div>
   );
 };

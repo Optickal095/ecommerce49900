@@ -26,7 +26,7 @@ const ItemListContainer = ({ welcome }) => {
   }
 
   return (
-    <div>
+    <div onClick={() => console.log("container")}>
       <h1>{welcome}</h1>
       <ItemList products={products} />
     </div>

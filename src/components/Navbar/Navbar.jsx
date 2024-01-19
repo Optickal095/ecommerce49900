@@ -27,24 +27,16 @@ const Navbar = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link" href="#">
-                  <Link to="/category/puzzle3d">PUZZLES 3D</Link>
-                </a>
+                <Link to="/category/puzzle3d">PUZZLES 3D</Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
-                  <Link to="/category/madera">PUZZLES DE MADERA</Link>
-                </a>
+                <Link to="/category/madera">PUZZLES DE MADERA</Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
-                  <Link to="/category/rubick">RUBICK</Link>
-                </a>
+                <Link to="/category/rubick">RUBICK</Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
-                  <Link to="/category/accesorios">ACCESORIOS</Link>
-                </a>
+                <Link to="/category/accesorios">ACCESORIOS</Link>
               </li>
               <CartWidget />
             </ul>
