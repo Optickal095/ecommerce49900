@@ -1,22 +1,43 @@
 import { useState, useEffect } from "react";
 import { getProductById } from "../../asyncMock";
-import { useParams } from "react-router-dom";
 import ItemDetail from "../ItemDetail/ItemDetail";
+import { useParams } from "react-router-dom";
 import { useNotification } from "../../notification/NotificationService";
 import { getDoc, doc } from "firebase/firestore";
+import { db } from "../../services/firebase/firebaseConfig";
 
 const ItemDetailContainer = () => {
+  const [loading, setLoading] = useState(true);
   const [product, setProduct] = useState(null);
 
   const { productId } = useParams();
 
-  useEffect(() => {
-    getProductById(productId).then((response) => {
-      setProduct(response);
-    });
-  }, [productId]);
+  const { showNotification } = useNotification();
 
-  return <ItemDetail {...product} />;
+  useEffect(() => {
+    getProductById(productId)
+      .then((response) => {
+        setProduct(response);
+      })
+      .catch((error) => {
+        console.error("Error fetching product:", error);
+        showNotification("Error al cargar el producto", "error");
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, [productId, showNotification]);
+
+  if (loading) {
+    return <h1>Loading ...</h1>;
+  }
+
+  return (
+    <>
+      <h1>Detalle del producto</h1>
+      <ItemDetail {...product} />
+    </>
+  );
 };
 
 export default ItemDetailContainer;
