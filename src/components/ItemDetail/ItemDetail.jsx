@@ -30,15 +30,17 @@ const ButtonCount = ({ onAdd, stock, initial = 1 }) => {
   };
 
   const decrement = () => {
-    setCount(count - 1);
+    if (count > 0) {
+      setCount(count - 1);
+    }
   };
 
   return (
     <div>
       <p>{count}</p>
       <button onClick={decrement}>-</button>
-      <button onClick={increment}>+</button>
       <button onClick={() => onAdd(count)}>Agregar al carrito</button>
+      <button onClick={increment}>+</button>
     </div>
   );
 };
@@ -48,7 +50,7 @@ const ItemDetail = ({ id, name, category, img, price, stock, description }) => {
 
   const { addItem, isInCart } = useCart();
 
-  // const { showNotification } = useNotification();
+  const { showNotification } = useNotification();
 
   const ItemCount = inputType === "input" ? InputCount : ButtonCount;
 
@@ -60,16 +62,11 @@ const ItemDetail = ({ id, name, category, img, price, stock, description }) => {
       quantity,
     };
     addItem(objProductToAdd);
-    // showNotification("success", `Se agrego correctamente ${quantity} ${name}`);
+    showNotification("success", `Se agrego correctamente ${quantity} ${name}`);
   };
 
   return (
     <article>
-      <button
-        onClick={() => setInputType(inputType === "input" ? "button" : "input")}
-      >
-        Cambiar contador
-      </button>
       <header>
         <h2>{name}</h2>
       </header>
