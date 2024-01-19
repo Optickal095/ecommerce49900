@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
 import { useNotification } from "../../notification/NotificationService";
+import "./ItemDetails.css";
 
 const InputCount = ({ onAdd, stock, initial = 1 }) => {
   const [count, setCount] = useState(initial);
@@ -49,7 +50,6 @@ const ItemDetail = ({ id, name, category, img, price, stock, description }) => {
   const [inputType, setInputType] = useState("button");
 
   const { addItem, isInCart } = useCart();
-
   const { showNotification } = useNotification();
 
   const ItemCount = inputType === "input" ? InputCount : ButtonCount;
@@ -62,7 +62,7 @@ const ItemDetail = ({ id, name, category, img, price, stock, description }) => {
       quantity,
     };
     addItem(objProductToAdd);
-    showNotification("success", `Se agrego correctamente ${quantity} ${name}`);
+    showNotification("success", `Se agregó correctamente ${quantity} ${name}`);
   };
 
   return (
@@ -74,9 +74,10 @@ const ItemDetail = ({ id, name, category, img, price, stock, description }) => {
         <img src={img} alt={name} style={{ width: 100 }} />
       </picture>
       <section>
-        <p>Categoria: {category}</p>
+        <p>Categoría: {category}</p>
         <p>Descripción: {description}</p>
         <p>Precio: {price}</p>
+        <p>Stock disponible: {stock}</p>
       </section>
       <footer>
         {!isInCart(id) ? (

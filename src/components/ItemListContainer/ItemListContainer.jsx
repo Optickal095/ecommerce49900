@@ -18,7 +18,7 @@ const ItemListContainer = ({ welcome }) => {
   }, [categoryId]);
 
   if (loading) {
-    return <p>Cargando...</p>;
+    return <h3>Cargando...</h3>;
   }
 
   if (products.length === 0) {

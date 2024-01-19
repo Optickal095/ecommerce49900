@@ -26,6 +26,15 @@ const products = [
     stock: 30,
     desciption: "Descripción",
   },
+  {
+    id: "4",
+    name: "Cubo Rubick 4x4",
+    price: 1500,
+    category: "rubick",
+    img: "https://http2.mlstatic.com/D_NQ_NP_643557-MLC51090169286_082022-O.webp",
+    stock: 20,
+    desciption: "Cubo de Rubick 4x4, bastante bueno",
+  },
 ];
 
 export const getProducts = () => {
