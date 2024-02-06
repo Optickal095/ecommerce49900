@@ -25,9 +25,9 @@ const Checkout = () => {
       setLoading(true);
       const objOrder = {
         buyer: {
-          name: "Sebastian Zuviria",
-          phone: "1234454905",
-          email: "contact@sebaz.io",
+          name: "Eduardo Hernández",
+          phone: "978654512",
+          email: "eduardoh@email.cl",
         },
         items: cart,
         total,
