@@ -156,6 +156,17 @@ const Checkout = () => {
           </label>
           <button type="submit">Generar orden</button>
         </form>
+
+        <div>
+          <h2>Productos en el carrito:</h2>
+          <ul>
+            {cart.map((product) => (
+              <li key={product.id}>
+                <strong>{product.name}</strong> - Cantidad: {product.quantity}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </>
   );
