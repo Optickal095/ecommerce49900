@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useCart } from "../../context/CartContext";
+import "./Checkout.css";
 import { db } from "../../services/firebase/firebaseConfig";
 import {
   addDoc,
@@ -15,19 +16,37 @@ import { useNotification } from "../../notification/NotificationService";
 const Checkout = () => {
   const [loading, setLoading] = useState(false);
   const [orderId, setOrderId] = useState(null);
+  const [userData, setUserData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+  });
 
   const { cart, total, clearCart } = useCart();
 
   const { showNotification } = useNotification();
 
-  const createOrder = async (userData) => {
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setUserData({
+      ...userData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    createOrder();
+  };
+
+  const createOrder = async () => {
     try {
       setLoading(true);
       const objOrder = {
         buyer: {
-          name: "Eduardo Hernández",
-          phone: "978654512",
-          email: "eduardoh@email.cl",
+          name: userData.name,
+          phone: userData.phone,
+          email: userData.email,
         },
         items: cart,
         total,
@@ -89,14 +108,55 @@ const Checkout = () => {
   }
 
   if (orderId) {
-    return <h1>El id de su orden es: {orderId}</h1>;
+    return (
+      <div>
+        <h1>Orden generada</h1>
+        <p>El id de su orden es: {orderId}</p>
+        <p>Nombre: {userData.name}</p>
+        <p>Teléfono: {userData.phone}</p>
+        <p>Correo electrónico: {userData.email}</p>
+      </div>
+    );
   }
 
   return (
     <>
       <h1>Checkout</h1>
-      {/* <ContactForm createOrder={createOrder} /> */}
-      <button onClick={createOrder}>Generar orden</button>
+      <div className="form-container">
+        <form onSubmit={handleSubmit}>
+          <label>
+            Nombre:
+            <input
+              type="text"
+              name="name"
+              value={userData.name}
+              onChange={handleInputChange}
+              required
+            />
+          </label>
+          <label>
+            Teléfono:
+            <input
+              type="tel"
+              name="phone"
+              value={userData.phone}
+              onChange={handleInputChange}
+              required
+            />
+          </label>
+          <label>
+            Correo electrónico:
+            <input
+              type="email"
+              name="email"
+              value={userData.email}
+              onChange={handleInputChange}
+              required
+            />
+          </label>
+          <button type="submit">Generar orden</button>
+        </form>
+      </div>
     </>
   );
 };
